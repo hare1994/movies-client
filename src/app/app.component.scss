@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container {
+  min-height: calc(100vh - 430px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  color: #fff;
+  text-align: center;
+}

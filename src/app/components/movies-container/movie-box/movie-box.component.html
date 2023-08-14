@@ -1,0 +1,17 @@
+<div class="movie-container">
+  <div class="image-box">
+    <img [src]="movie.ImageUrl"/>
+  </div>
+  <div class="title-and-year">{{movie.Title}} ({{movie.Year}})</div>
+  <div class="rating-and-favorite">
+    <div class="rating">
+      <img src="../../../../assets/icons/star.png"/>
+      <span>{{movie.Rating}}</span>
+    </div>
+    <div class="favorite" *ngIf="isLoggedIn$ | async" >
+      <img (click)="favoriteMovie()" src="../../../../assets/icons/empty-heart.png" *ngIf="!movie.isFavorite"/>
+      <img (click)="unFavoriteMovie()" src="../../../../assets/icons/red-heart.png" *ngIf="movie.isFavorite"/>
+    </div>
+  </div>
+  <button (click)="onReadMore()" class="read-more-btn">Read More</button>
+</div>

@@ -1,0 +1,28 @@
+.movies-container {
+  background: #818586;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+  height: 100vh;
+
+  app-movie-box {
+    flex-basis: calc((100% / 5) - 50px);
+    margin-bottom: 25px;
+  }
+}
+
+app-movie-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}

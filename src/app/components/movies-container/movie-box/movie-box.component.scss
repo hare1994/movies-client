@@ -1,0 +1,56 @@
+@import "src/styles/mixins";
+
+.movie-container {
+  color: black;
+  font: 20px Georgia;
+  letter-spacing: -0.6px;
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  height: 560px;
+  align-items: baseline;
+  justify-content: space-between;
+
+  .rating-and-favorite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .favorite {
+      cursor: pointer;
+      img {
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+
+  .image-box, img {
+    height: 380px;
+    width: 260px;
+  }
+
+  .title-and-year {
+    text-align: left;
+  }
+
+  .rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      margin-right: 5px;
+      height: 28px;
+      width: 28px;
+    }
+  }
+
+  .read-more-btn {
+    width: 260px;
+    height: 50px;
+    @include system-button;
+  }
+}
+

@@ -1,0 +1,142 @@
+@import "src/styles/mixins";
+
+:host {
+  flex-grow: 1;
+  display: flex;
+}
+
+.section-container {
+  color: black;
+  margin: 0 auto;
+  background: #818586;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .movies-container-title-and-search {
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .genres{
+      .genre-btn {
+        border: 1px solid black;
+      }
+    }
+
+    .genre-filter {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 20px;
+
+      button {
+          margin: 0px 5px;
+          background-color: #fbfcff;
+          color: black;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+        /* Hover state */
+        &:hover {
+          background-color: #2980b9;
+          color: #fff;
+          cursor: pointer;
+        }
+
+        &.active-filter{
+          background: green;
+          color: white;
+        }
+      }
+
+      label {
+        font-size: 24px;
+      }
+    }
+
+    label {
+      font-size: 60px;
+    }
+
+    input.movie-search-input {
+      align-self: flex-end;
+      background: white;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      width: 200px;
+      margin-right: 20px;
+    }
+
+    input[type="text"].movie-search-input:focus {
+      outline: none;
+      border-color: #5c9eff;
+      box-shadow: 0 0 4px rgba(92, 158, 255, 0.6);
+    }
+  }
+
+  .movies-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+
+    app-movie-box {
+      flex-basis: calc((100% / 5) - 50px);
+      margin-bottom: 25px;
+    }
+  }
+
+  .movies-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 20px 0;
+
+    button {
+      height: 50px;
+      width: 100px;
+      @include system-button;
+    }
+
+    button:not([disabled]) {
+      cursor: pointer;
+    }
+
+    .prev-btn {
+      margin-right: 30px;
+    }
+
+    .next-btn {
+      margin-left: 30px;
+    }
+  }
+}
+
+app-movie-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  input.movie-search-input {
+    align-self: center !important;
+  }
+}

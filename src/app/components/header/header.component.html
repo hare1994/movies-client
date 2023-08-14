@@ -1,0 +1,21 @@
+<header>
+  <div class="logo-and-name" routerLink="/movies">
+    <img class="app-logo" src="../../../assets/logos/harel-movies.png" alt="Logo">
+    <label>Harel's Movies</label>
+  </div>
+  <div *ngIf="(loggedInUsername$ | async) as loggedInUsername" class="logged-in-user">
+    <img src="../../../assets/icons/avatar.png"/>
+    <label>logged in as {{loggedInUsername}}</label>
+  </div>
+  <div class="actions">
+    <ng-container *ngIf="!(isLoggedIn$ | async); else loggedInLinks">
+      <a class="sign-up" routerLink="/signup">Sign Up</a>
+      <a class="sign-up" routerLink="/login">Login</a>
+    </ng-container>
+    <ng-template #loggedInLinks>
+      <a class="sign-up" routerLink="/favorites">Favorites</a>
+      <a class="sign-up" (click)="logout()">Logout</a>
+    </ng-template>
+  </div>
+</header>
+

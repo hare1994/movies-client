@@ -1,0 +1,28 @@
+<div class="section-container">
+  <div class="movies-container-title-and-search">
+    <div class="genre-filter">
+      <label>Genres:</label>
+      <button class="genres" *ngFor="let genre of availableGenres"
+              [ngClass]="{ 'active-filter': selectedGenres[genre] }"
+              class="genre-btn"
+              (click)="toggleGenreSelection(genre)">
+        {{ genre }}
+      </button>
+    </div>
+    <input class="movie-search-input" type="text" placeholder="Search movies..." [(ngModel)]="searchQuery"
+           (input)="searchMovieByName()"/>
+  </div>
+  <div class="movies-navigation">
+    <button class="prev-btn" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button class="next-btn" [disabled]="currentPage >= getNumberOfPages()" (click)="onPageChange(currentPage + 1)">
+      Next
+    </button>
+  </div>
+  <div class="movies-container">
+    <app-movie-box (readMore)="openModal($event)" [movie]="movie" *ngFor="let movie of movies"
+                   [@fadeAnimation]="movie"></app-movie-box>
+  </div>
+</div>
+
+<app-movie-modal (onModalClose)="closeModal()" [movie]="selectedMovie" *ngIf="selectedMovie"></app-movie-modal>

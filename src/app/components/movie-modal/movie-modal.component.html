@@ -1,0 +1,19 @@
+<div class="modal" *ngIf="movie">
+  <div class="left-side"><img [src]="movie.ImageUrl" alt="Movie Image"></div>
+  <div class="right-side">
+    <div class="top-right-side">
+      <h1 class="movie-title">{{ movie.Title }}</h1>
+      <h3 class="movie-runtime">{{movie.Runtime}}</h3>
+      <h3 class="movie-genres">{{movie.Genres}}</h3>
+      <div class="movie-rating">
+        <img src="../../../assets/icons/star.png"/>
+        <h3 class="movie-rating">{{movie.Rating}} / 10 </h3>
+      </div>
+      <p class="movie-description">{{ movie.Description | descriptionFormat}}</p>
+    </div>
+    <div class="bottom-right-side">
+      <button (click)="closeModal()">Back to list</button>
+    </div>
+  </div>
+
+</div>

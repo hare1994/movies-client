@@ -1,0 +1,5 @@
+<div class="movies-container">
+  <app-movie-box (readMore)="openModal($event)" [movie]="movie" *ngFor="let movie of movies"></app-movie-box>
+</div>
+
+<app-movie-modal (onModalClose)="closeModal()" [movie]="selectedMovie" *ngIf="selectedMovie"></app-movie-modal>
